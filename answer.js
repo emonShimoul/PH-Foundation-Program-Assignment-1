@@ -1,4 +1,4 @@
-//Question No. 1
+// Question No. 1
 function describeValue(value){
     if(value){
         return `${typeof(value)} || Truthy`;
@@ -7,7 +7,7 @@ function describeValue(value){
     }
 }
 
-//Question No. 2
+// Question No. 2
 function getDayType(value){
     switch(value.toLowerCase()){
         case "friday":
@@ -26,7 +26,7 @@ function getDayType(value){
     }
 }
 
-//Question No. 3
+// Question No. 3
 function validateUsername (username){
     if(username.length < 4) {
         return "Too Short";
@@ -39,13 +39,13 @@ function validateUsername (username){
     }
 }
 
-//Question No. 4
+// Question No. 4
 function getCngFare(distance, isNight=false, waitingMinutes=0){
     let totalCost;
     if(distance<=2){
         totalCost = 50;
-    } else if(distance>2){
-        totalCost = 50+((distance-2)*15);
+    } else{
+        totalCost = 50 + ((distance - 2) * 15);
     }
 
     if(waitingMinutes > 0){
@@ -59,4 +59,22 @@ function getCngFare(distance, isNight=false, waitingMinutes=0){
     return totalCost;
 }
 
+// Question No. 5
+const getChaseVerdict = (target, scored, ballsLeft) => {
+    let runsNeeded = target - scored;
+    if(runsNeeded <= 0){
+        return "Won";
+    } else if (ballsLeft <= 0){
+        return "Lost";
+    } else{
+        let requiredRate = (runsNeeded / ballsLeft) * 6;
 
+        if(requiredRate <= 6){
+            return `Need ${runsNeeded} runs in ${ballsLeft} balls || Comfortable`;
+        } else if(requiredRate > 6 && requiredRate <= 12){
+            return `Need ${runsNeeded} runs in ${ballsLeft} balls || Tough`;
+        } else{
+            return `Need ${runsNeeded} runs in ${ballsLeft} balls || Almost Impossible`;
+        }
+    }
+}
