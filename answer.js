@@ -39,3 +39,24 @@ function validateUsername (username){
     }
 }
 
+//Question No. 4
+function getCngFare(distance, isNight=false, waitingMinutes=0){
+    let totalCost;
+    if(distance<=2){
+        totalCost = 50;
+    } else if(distance>2){
+        totalCost = 50+((distance-2)*15);
+    }
+
+    if(waitingMinutes > 0){
+        totalCost = totalCost + waitingMinutes*2;
+    }
+
+    if(isNight){
+        totalCost = totalCost + (totalCost * 20 / 100);
+    }
+    
+    return totalCost;
+}
+
+
